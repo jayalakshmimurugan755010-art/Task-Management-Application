@@ -1,0 +1,11 @@
+router.get("/tasks", auth,
+async(req,res)=>{
+
+ const tasks =
+ await Task.find({
+  userId:req.user.id
+ });
+
+ res.json(tasks);
+
+});
