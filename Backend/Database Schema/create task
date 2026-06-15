@@ -1,0 +1,15 @@
+router.post("/tasks", auth,
+async(req,res)=>{
+
+ const task = new Task({
+  title:req.body.title,
+  description:req.body.description,
+  status:req.body.status,
+  userId:req.user.id
+ });
+
+ await task.save();
+
+ res.json(task);
+
+});
